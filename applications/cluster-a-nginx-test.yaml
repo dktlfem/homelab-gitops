@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-a-nginx-test
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/dktlfem/homelab-gitops.git
+    targetRevision: HEAD
+    path: cluster-a/apps/nginx-test
+  destination:
+    server: https://10.10.10.30:6443
+    namespace: demo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-test
+  namespace: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-test
+  template:
+    metadata:
+      labels:
+        app: nginx-test
+    spec:
+      nodeSelector:
+        node-role: worker
+      containers:
+        - name: nginx
+          image: nginx:stable
+          ports:
+            - containerPort: 80
