@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-app-config
+  namespace: default
+data:
+  SPRING_PROFILES_ACTIVE: "prod"
+  SPRING_DATASOURCE_URL: "jdbc:mysql://10.10.10.60:3306/ticketing_user?useSSL=false&allowPublicKeyRetrieval=true"
+  SPRING_DATA_REDIS_URL: "redis://default:qkqhqhqkq1w2R$@192.168.124.101:6379"
+  SPRING_REDIS_URL: "redis://default:qkqhqhqkq1w2R$@192.168.124.101:6379"
+  MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "prometheus,health,metrics"
+  MANAGEMENT_HEALTH_REDIS_ENABLED: "false"
+  MANAGEMENT_PROMETHEUS_METRICS_EXPORT_ENABLED: "true"
