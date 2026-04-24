@@ -17,7 +17,7 @@ spec:
         node-role: worker
       containers:
         - name: user-app
-          image: dktlfem/user-app:latest
+          image: dktlfem/ci-cd-test:user-app-6-4e89049
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
